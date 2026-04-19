@@ -50,7 +50,6 @@ def generate_audit(site_data, url):
         messages=[{"role": "user", "content": prompt}]
     )
     return message.content[0].text
-
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
@@ -59,6 +58,7 @@ def index():
         audit = generate_audit(site_data, url)
         return render_template("report.html", audit=audit, url=url)
     return render_template("index.html")
-
 if __name__ == "__main__":
-    app.run(debug=True, port=5001)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5001)), debug=False)
+
+
