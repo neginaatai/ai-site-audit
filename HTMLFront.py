@@ -1,0 +1,4 @@
+<form method="POST">
+    <input type="text" name="url" placeholder="Enter website URL">
+    <button type="submit">Generate Audit</button>
+</form>
